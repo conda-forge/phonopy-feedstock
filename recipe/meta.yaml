@@ -12,24 +12,20 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  skip: True  # [py3k and not win]
   number: 0
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
     - python
-    - numpy 1.11.*
+    - numpy x.x
     - setuptools
-    - toolchain
   run:
     - python
-    - numpy 1.11.*
+    - numpy x.x
     - ase
     - scipy
-    - yaml
     - pyyaml
-    - future
 
 test:
   imports:
@@ -37,6 +33,8 @@ test:
   commands:
     - cd {{ environ.SRC_DIR }}/test
     - python -m unittest discover -s phonopy -b
+    - conda inspect linkages -p $PREFIX phonopy  # [not win]
+    - conda inspect objects -p $PREFIX phonopy  # [osx]
 
 about:
   home: https://atztogo.github.io/phonopy/
@@ -47,15 +45,15 @@ about:
 
   description: |
     Phonopy is an open source package for phonon calculations at harmonic and quasi-harmonic levels.
-    It works with multiple DFT programs (VASP, VASP DFPT, Abinit, Pwscf, Siesta, Elk, FHI-aims, Wien2k) 
-    as sources of inter-atomic forces and uses finite displacement method and symmetry relations 
-    for calculating elements of dynamical matrix. It works for all crystal symmetries and provides 
-    (among others)  phonon band structure, phonon DOS and partial-DOS, phonon thermal properties 
-    (free energy, heat capacity, and entropy), phonon group velocity, mean square displacements, 
-    irreducible representations of normal modes, quasi-harmonic approximation (thermal expansion, 
-    heat capacity at constant pressure), mode Grüneisen parameters, non-analytical-term correction 
+    It works with multiple DFT programs (VASP, VASP DFPT, Abinit, Pwscf, Siesta, Elk, FHI-aims, Wien2k)
+    as sources of inter-atomic forces and uses finite displacement method and symmetry relations
+    for calculating elements of dynamical matrix. It works for all crystal symmetries and provides
+    (among others)  phonon band structure, phonon DOS and partial-DOS, phonon thermal properties
+    (free energy, heat capacity, and entropy), phonon group velocity, mean square displacements,
+    irreducible representations of normal modes, quasi-harmonic approximation (thermal expansion,
+    heat capacity at constant pressure), mode Grüneisen parameters, non-analytical-term correction
     (LO-TO splitting). It also provides Python API for use as a library.
-  
+
   doc_url: https://atztogo.github.io/phonopy/
   dev_url: https://github.com/atztogo/phonopy/
 
