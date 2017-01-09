@@ -30,8 +30,10 @@ requirements:
 test:
   imports:
     - phonopy
+  source_files:
+    - test/*
   commands:
-    - cd {{ environ.SRC_DIR }}
+      #    - cd {{ environ.SRC_DIR }}
     - pwd  # [not win]
     - ls -l  # [not win]
     - cd test
