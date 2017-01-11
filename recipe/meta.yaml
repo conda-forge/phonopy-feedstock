@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
@@ -30,8 +30,10 @@ requirements:
 test:
   imports:
     - phonopy
+  source_files:
+    - test
   commands:
-    - cd {{ environ.SRC_DIR }}/test
+    - cd test
     - python -m unittest discover -s phonopy -b
     - conda inspect linkages -p $PREFIX phonopy  # [not win]
     - conda inspect objects -p $PREFIX phonopy  # [osx]
