@@ -1,6 +1,6 @@
 {% set name = "phonopy" %}
-{% set version = "1.11.8" %}
-{% set sha256 = "41998c8911775dd394ef458cec951ed2f856d459588f0e25c9411b16615adba5" %}
+{% set version = "1.11.10.40" %}
+{% set sha256 = "1fbd7d79002507afd1e734409b9a51ae4a374cd6ca03c84016a5c61d16f46a3b" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
