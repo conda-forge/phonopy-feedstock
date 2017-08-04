@@ -1,6 +1,6 @@
 {% set name = "phonopy" %}
-{% set version = "1.11.12.5" %}
-{% set sha256 = "f1f4efb00b02c8f7332d878cdd084c9fe88f16b261a87c2cde5a1fb784459b99" %}
+{% set version = "1.11.12.31" %}
+{% set sha256 = "b2b2109b5f43a2273e69416e64f308682dcb8929a11e2fa881fa9eaf0310ea4b" %}
 
 package:
   name: {{ name|lower }}
