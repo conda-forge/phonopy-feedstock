@@ -18,11 +18,11 @@ build:
 requirements:
   build:
     - python
-    - numpy
+    - numpy 1.11.*
     - setuptools
   run:
     - python
-    - numpy
+    - numpy >=1.11
     - ase
     - scipy
     - pyyaml
