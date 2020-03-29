@@ -1,6 +1,6 @@
 {% set name = "phonopy" %}
-{% set version = "2.4.2" %}
-{% set sha256 = "6e6ce41ce8a51723b94d974adfee032cddce5b9300984dd23b59e101ed0a2861" %}
+{% set version = "2.5.0" %}
+{% set sha256 = "1d5ad83966d5817e35d3aa44d7252547f19e5fc9dac8586679950330601454e6" %}
 
 
 package:
@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
@@ -50,7 +50,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'Phonopy is an open source package for phonon calculations at harmonic and quasi-harmonic levels.'
+  summary: Phonopy is an open source package for phonon calculations at harmonic and quasi-harmonic levels.
 
   description: |
     Phonopy is an open source package for phonon calculations at harmonic and quasi-harmonic levels.
