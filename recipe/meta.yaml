@@ -47,6 +47,7 @@ test:
     - rm test/phonon/test_band_structure.py  # [linux]
     - rm test/phonon/test_dos.py  # [linux]
     - rm test/phonon/test_mesh.py  # [linux]
+    - rm test/phonon/test_moment.py  # [linux]
     - cd test
     - python -m unittest discover -v
     - conda inspect linkages -p $PREFIX phonopy  # [not win]
