@@ -41,7 +41,7 @@ test:
   commands:
     - pip check
     - cd test
-    - python -m unittest discover -b
+    - python -m unittest discover -v 
     - conda inspect linkages -p $PREFIX phonopy  # [not win]
     - conda inspect objects -p $PREFIX phonopy  # [osx]
 
