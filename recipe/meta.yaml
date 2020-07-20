@@ -34,6 +34,8 @@ requirements:
     - pyyaml
 
 test:
+  requires:
+    - pytest
   imports:
     - phonopy
   source_files:
@@ -41,8 +43,9 @@ test:
   commands:
     - pip check
     - rm test/phonon/test_random_displacements.py
-    - cd test
-    - python -m unittest discover -b
+    - pytest test
+    #- cd test
+    #- python -m unittest discover -b
     - conda inspect linkages -p $PREFIX phonopy  # [not win]
     - conda inspect objects -p $PREFIX phonopy  # [osx]
 
