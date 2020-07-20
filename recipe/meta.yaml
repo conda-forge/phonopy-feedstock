@@ -52,7 +52,7 @@ test:
     - rm test/spectrum/test_dynamic_structure_factor.py  # [linux]
     - rm test/test_api_phonopy.py  # [linux]
     - cd test
-    - python -m unittest discover -v
+    - python -m unittest discover -b
     - conda inspect linkages -p $PREFIX phonopy  # [not win]
     - conda inspect objects -p $PREFIX phonopy  # [osx]
 
