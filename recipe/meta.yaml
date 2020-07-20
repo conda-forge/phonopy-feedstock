@@ -43,9 +43,9 @@ test:
   commands:
     - pip check
     - rm test/phonon/test_random_displacements.py
-    - pytest test
-    #- cd test
-    #- python -m unittest discover -b
+    - cd test
+    - pytest
+    - python -m unittest discover -b
     - conda inspect linkages -p $PREFIX phonopy  # [not win]
     - conda inspect objects -p $PREFIX phonopy  # [osx]
 
