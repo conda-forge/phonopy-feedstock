@@ -49,6 +49,7 @@ test:
     - rm test/phonon/test_mesh.py  # [linux]
     - rm test/phonon/test_moment.py  # [linux]
     - rm test/phonon/test_thermal_properties.py  # [linux]
+    - rm test/spectrum/test_dynamic_structure_factor.py  # [linux]
     - cd test
     - python -m unittest discover -v
     - conda inspect linkages -p $PREFIX phonopy  # [not win]
