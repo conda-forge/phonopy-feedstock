@@ -30,7 +30,7 @@ requirements:
     - {{ pin_compatible('numpy') }}
     #- ase
     - matplotlib-base
-    #- h5py
+    - h5py
     - scipy
     - pyyaml
 
