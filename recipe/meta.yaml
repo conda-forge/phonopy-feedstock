@@ -42,7 +42,8 @@ test:
     - pip check
     # Disable the faulty test case - following the advise from upstream
     - rm test/phonon/test_random_displacements.py
-    - python -m unittest discover -s test -b
+    - cd test
+    - python -m unittest discover -b
     - conda inspect linkages -p $PREFIX phonopy  # [not win]
     - conda inspect objects -p $PREFIX phonopy  # [osx]
 
