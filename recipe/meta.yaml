@@ -40,9 +40,8 @@ test:
     - test
   commands:
     - pip check
-    - python setup.py test
     - cd test
-    - python -m unittest discover -s phonopy -b
+    - python -m unittest discover 
     - conda inspect linkages -p $PREFIX phonopy  # [not win]
     - conda inspect objects -p $PREFIX phonopy  # [osx]
 
