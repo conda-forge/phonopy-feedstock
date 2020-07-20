@@ -28,7 +28,7 @@ requirements:
     - python
     - pip
     - {{ pin_compatible('numpy') }}
-    - ase
+    #- ase
     - h5py
     - scipy
     - pyyaml
