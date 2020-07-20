@@ -29,7 +29,8 @@ requirements:
     - pip
     - {{ pin_compatible('numpy') }}
     #- ase
-    - h5py
+    - matplotlib-base
+    #- h5py
     - scipy
     - pyyaml
 
