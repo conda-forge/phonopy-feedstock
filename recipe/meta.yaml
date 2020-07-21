@@ -32,6 +32,7 @@ requirements:
     - pip
     - {{ pin_compatible('numpy') }}
     - matplotlib-base
+    - spglib
     - h5py
     - scipy
     - pyyaml
