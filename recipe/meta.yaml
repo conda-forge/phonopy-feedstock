@@ -1,5 +1,5 @@
 {% set name = "phonopy" %}
-{% set version = "2.6.0" %}
+{% set version = "2.7.0" %}
 {% set sha256 = "ae1fb1a22417fdb8182a24e97d054883a34239e73e7e22fc6883ed2ad99dd853" %}
 
 
@@ -8,9 +8,11 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  #fn: {{ name }}-{{ version }}.tar.gz
+  #url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  #sha256: {{ sha256 }}
+  git_url: https://github.com/phonopy/phonopy.git
+  git_branch: develop
 
 build:
   number: 0
@@ -24,11 +26,12 @@ requirements:
     - numpy
     - setuptools
     - pip
+    - spglib
   run:
     - python
     - pip
     - {{ pin_compatible('numpy') }}
-    - ase
+    - matplotlib-base
     - h5py
     - scipy
     - pyyaml
@@ -41,7 +44,7 @@ test:
   commands:
     - pip check
     - cd test
-    - python -m unittest discover -s phonopy -b
+    - python -m unittest discover -v
     - conda inspect linkages -p $PREFIX phonopy  # [not win]
     - conda inspect objects -p $PREFIX phonopy  # [osx]
 
