@@ -5,7 +5,7 @@ Home: https://atztogo.github.io/phonopy/
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Phonopy is an open source package for phonon calculations at harmonic and quasi-harmonic levels.
 
