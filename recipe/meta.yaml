@@ -43,9 +43,8 @@ test:
   commands:
     - pip check
     - cd test
-    - tar xvfj interface/vasprun.xml.tar.bz2
-    - cp phonopy_disp_NaCl.yaml phonopy_disp.yaml
-    - phonopy -f vasprun.xml-001 vasprun.xml-002
+    - sed s/use_expat=True/use_expat=False/ interface/test_vasp.py > interface/test_vasp_etree.py
+    - rm interface/test_vasp.py
     - rm phonon/test_random_displacements.py
     - python -m unittest discover -b
     - conda inspect linkages -p $PREFIX phonopy  # [not win]
