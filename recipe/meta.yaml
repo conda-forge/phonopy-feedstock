@@ -1,6 +1,6 @@
 {% set name = "phonopy" %}
-{% set version = "2.8.1" %}
-{% set sha256 = "28864b04adb900597705f1367a100da869af835088bdd13f1693c4382259f128" %}
+{% set version = "2.9.1" %}
+{% set sha256 = "6a70e83f2c8fb8db97195e212c422a07ae50b083d996c3b69d3da6b226fc51c9" %}
 
 
 package:
@@ -13,7 +13,8 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
+  skip: True         # [python_impl == 'pypy']
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
@@ -47,8 +48,6 @@ test:
     #- rm interface/test_vasp.py
     #- rm phonon/test_random_displacements.py
     - python -m unittest discover -b
-    - conda inspect linkages -p $PREFIX phonopy  # [not win]
-    - conda inspect objects -p $PREFIX phonopy  # [osx]
 
 about:
   home: https://atztogo.github.io/phonopy/
