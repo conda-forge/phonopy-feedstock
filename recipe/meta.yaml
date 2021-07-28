@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
   skip: true  # [python_impl == 'pypy']
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
@@ -75,3 +75,4 @@ extra:
     - jochym
     - atztogo
     - bocklund
+    - jan-janssen
