@@ -228,5 +228,6 @@ Feedstock Maintainers
 
 * [@atztogo](https://github.com/atztogo/)
 * [@bocklund](https://github.com/bocklund/)
+* [@jan-janssen](https://github.com/jan-janssen/)
 * [@jochym](https://github.com/jochym/)
 
