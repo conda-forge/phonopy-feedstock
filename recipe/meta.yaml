@@ -40,6 +40,8 @@ requirements:
     - pyyaml
 
 test:
+  requires:
+    - pytest
   imports:
     - phonopy
   source_files:
