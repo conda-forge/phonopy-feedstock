@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [python_impl == 'pypy']
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
@@ -46,11 +46,12 @@ test:
     - test
   commands:
     - pip check
-    - cd test
+    #- cd test
     #- sed s/use_expat=True/use_expat=False/ interface/test_vasp.py > interface/test_vasp_etree.py
     #- rm interface/test_vasp.py
     #- rm phonon/test_random_displacements.py
-    - python -m unittest discover -b
+    #- python -m unittest discover -b
+    pytest
 
 about:
   home: https://atztogo.github.io/phonopy/
