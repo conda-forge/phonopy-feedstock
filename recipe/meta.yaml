@@ -51,7 +51,7 @@ test:
     #- rm interface/test_vasp.py
     #- rm phonon/test_random_displacements.py
     #- python -m unittest discover -b
-    pytest
+    - pytest
 
 about:
   home: https://atztogo.github.io/phonopy/
