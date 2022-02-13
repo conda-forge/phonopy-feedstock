@@ -48,11 +48,6 @@ test:
     - test
   commands:
     - pip check
-    #- cd test
-    #- sed s/use_expat=True/use_expat=False/ interface/test_vasp.py > interface/test_vasp_etree.py
-    #- rm interface/test_vasp.py
-    #- rm phonon/test_random_displacements.py
-    #- python -m unittest discover -b
     - pytest
 
 about:
