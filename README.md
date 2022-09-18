@@ -1,7 +1,7 @@
 About phonopy
 =============
 
-Home: https://atztogo.github.io/phonopy/
+Home: https://phonopy.github.io/phonopy/
 
 Package license: BSD-3-Clause
 
@@ -9,9 +9,9 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/phonopy-feedsto
 
 Summary: Phonopy is an open source package for phonon calculations at harmonic and quasi-harmonic levels.
 
-Development: https://github.com/atztogo/phonopy/
+Development: https://github.com/phonopy/phonopy/
 
-Documentation: https://atztogo.github.io/phonopy/
+Documentation: https://phonopy.github.io/phonopy/
 
 Phonopy is an open source package for phonon calculations at harmonic and quasi-harmonic levels.
 It works with multiple DFT programs (VASP, VASP DFPT, Abinit, Pwscf, Siesta, Elk, FHI-aims, Wien2k)
@@ -29,7 +29,7 @@ Current build status
 
 
 <table>
-    
+
   <tr>
     <td>Azure</td>
     <td>

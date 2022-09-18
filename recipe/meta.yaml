@@ -13,9 +13,9 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [python_impl == 'pypy']
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  script: export PHONOPY_USE_OPENMP=true && {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   build:
@@ -51,7 +51,7 @@ test:
     - pytest
 
 about:
-  home: https://atztogo.github.io/phonopy/
+  home: https://phonopy.github.io/phonopy/
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
@@ -68,8 +68,8 @@ about:
     heat capacity at constant pressure), mode Grüneisen parameters, non-analytical-term correction
     (LO-TO splitting). It also provides Python API for use as a library.
 
-  doc_url: https://atztogo.github.io/phonopy/
-  dev_url: https://github.com/atztogo/phonopy/
+  doc_url: https://phonopy.github.io/phonopy/
+  dev_url: https://github.com/phonopy/phonopy/
 
 extra:
   recipe-maintainers:
