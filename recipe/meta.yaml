@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [python_impl == 'pypy']
   script: echo "extra_compile_args = -fopenmp=libomp" > site.cfg && echo "extra_link_args = -lomp" >> site.cfg &&{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [osx or arm64]
   script: echo "extra_compile_args = -fopenmp" > site.cfg && echo "extra_link_args = -lgomp" >> site.cfg && {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [linux]
