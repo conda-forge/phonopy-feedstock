@@ -1,6 +1,6 @@
 {% set name = "phonopy" %}
-{% set version = "2.17.0" %}
-{% set sha256 = "6c194d09fabe6fbdd9ff2c488663fdb369208e51b3f84293a48d429e9baa92e5" %}
+{% set version = "2.17.1" %}
+{% set sha256 = "b7ed62d52f1455dd2cf7f15d6b41f691aa2e0c30554bec7a1b8d0c79bdab2d87" %}
 
 
 package:
@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   skip: true  # [python_impl == 'pypy']
   script: echo "extra_compile_args = -fopenmp=libomp" > site.cfg && echo "extra_link_args = -lomp" >> site.cfg &&{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [osx or arm64]
   script: echo "extra_compile_args = -fopenmp" > site.cfg && echo "extra_link_args = -lgomp" >> site.cfg && {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [linux]
