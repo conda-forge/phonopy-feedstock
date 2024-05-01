@@ -30,14 +30,14 @@ requirements:
   host:
     - python
     - numpy
-    - spglib
+    - spglib <2.4.0
     - setuptools
     - pip
   run:
     - python
     - pip
     - {{ pin_compatible('numpy') }}
-    - spglib
+    - spglib <2.4.0
     - matplotlib-base
     - h5py
     - scipy
