@@ -1,6 +1,6 @@
 {% set name = "phonopy" %}
-{% set version = "2.22.1" %}
-{% set sha256 = "9eec7aff5cf5c41afee3e7d6ad1fe839cfb354e23d8fad29fd21c700f67e8562" %}
+{% set version = "2.23.1" %}
+{% set sha256 = "c49a2144e24d00f744213b4cfd59dc0182fc01291f81384acbc5d79ea892de15" %}
 
 
 package:
@@ -27,6 +27,7 @@ requirements:
     - llvm-openmp  # [osx or arm64]
     - libgomp      # [linux]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - numpy
