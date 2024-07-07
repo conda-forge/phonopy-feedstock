@@ -1,6 +1,6 @@
 {% set name = "phonopy" %}
-{% set version = "2.25.0" %}
-{% set sha256 = "364406173ac47f24867f26e4bad97ec6f32b3dbce75bfce841014cff3f85ade3" %}
+{% set version = "2.26.0" %}
+{% set sha256 = "2c7ecb7e2b886348bf55c4abede7d08c274fec4bd5ecb0eaccdb546df2285df6" %}
 
 
 package:
@@ -15,35 +15,34 @@ source:
 build:
   number: 0
   skip: true  # [python_impl == 'pypy']
-  script: echo "extra_compile_args = -fopenmp=libomp" > site.cfg && echo "extra_link_args = -lomp" >> site.cfg &&{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [osx or arm64]
-  script: echo "extra_compile_args = -fopenmp" > site.cfg && echo "extra_link_args = -lgomp" >> site.cfg && {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [linux]
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [win]
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
+    - scikit-build-core
+    - nanobind
+    - cmake
     - llvm-openmp  # [osx or arm64]
     - libgomp      # [linux]
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
   host:
     - python
     - numpy
     - spglib
-    - setuptools
-    - pip
   run:
     - python
-    - pip
     - {{ pin_compatible('numpy') }}
     - spglib
     - matplotlib-base
     - h5py
     - scipy
     - pyyaml
-    - libopenblas ==0.3.18  # [arm64]
+    - libopenblas
 
 test:
   requires:
