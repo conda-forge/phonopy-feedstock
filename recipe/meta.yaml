@@ -1,6 +1,6 @@
 {% set name = "phonopy" %}
-{% set version = "2.26.0" %}
-{% set sha256 = "2c7ecb7e2b886348bf55c4abede7d08c274fec4bd5ecb0eaccdb546df2285df6" %}
+{% set version = "2.26.2" %}
+{% set sha256 = "e3f7ebcbfccfa50319ba98216412d2df9bcd47b76a59c50ab2f79ebec0713b11" %}
 
 
 package:
@@ -15,7 +15,8 @@ source:
 build:
   number: 0
   skip: true  # [python_impl == 'pypy']
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [not win]
+  script: set PHONOPY_USE_OMP=OFF && {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [win]
 
 requirements:
   build:
@@ -65,10 +66,10 @@ test:
     - test
   commands:
     - pip check
-    - pytest
+    - pytest -v
 
 about:
-  home: https://atztogo.github.io/phonopy/
+  home: https://phonopy.github.io/phonopy/
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
@@ -85,7 +86,7 @@ about:
     heat capacity at constant pressure), mode Grüneisen parameters, non-analytical-term correction
     (LO-TO splitting). It also provides Python API for use as a library.
 
-  doc_url: https://atztogo.github.io/phonopy/
+  doc_url: https://phonopy.github.io/phonopy/
   dev_url: https://github.com/atztogo/phonopy/
 
 extra:
