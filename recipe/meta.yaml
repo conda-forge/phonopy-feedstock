@@ -58,6 +58,7 @@ requirements:
 test:
   requires:
     - pytest
+    - pip
   imports:
     - phonopy
   source_files:
