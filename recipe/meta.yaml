@@ -36,6 +36,11 @@ requirements:
     - python
     - numpy
     - spglib
+    - pip
+    - scikit-build-core
+    - nanobind
+    - cmake
+    - ninja
   run:
     - python
     - {{ pin_compatible('numpy') }}
