@@ -26,7 +26,8 @@ requirements:
     - scikit-build-core
     - nanobind
     - cmake
-    - ninja
+    - make  # [not win]
+    - ninja  # [win]    
     - setuptools_scm
     - llvm-openmp  # [osx or arm64]
     - libgomp      # [linux]
@@ -41,7 +42,8 @@ requirements:
     - scikit-build-core
     - nanobind
     - cmake
-    - ninja
+    - make  # [not win]
+    - ninja  # [win]    
     - setuptools_scm
   run:
     - python
