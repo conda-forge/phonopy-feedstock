@@ -27,6 +27,7 @@ requirements:
     - nanobind
     - cmake
     - ninja
+    - setuptools_scm
     - llvm-openmp  # [osx or arm64]
     - libgomp      # [linux]
     - {{ compiler('c') }}
@@ -41,6 +42,7 @@ requirements:
     - nanobind
     - cmake
     - ninja
+    - setuptools_scm
   run:
     - python
     - {{ pin_compatible('numpy') }}
