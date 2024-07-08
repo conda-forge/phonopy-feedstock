@@ -66,6 +66,7 @@ test:
     - test
   commands:
     - pip check
+    - pytest -sv test/harmonic/test_dynamical_matrix.py::test_dynmat
     - pytest -v
 
 about:
