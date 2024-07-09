@@ -1,6 +1,6 @@
 {% set name = "phonopy" %}
-{% set version = "2.26.2" %}
-{% set sha256 = "e3f7ebcbfccfa50319ba98216412d2df9bcd47b76a59c50ab2f79ebec0713b11" %}
+{% set version = "2.26.3" %}
+{% set sha256 = "c3677c7e382c60763fea74e1de531ebe7b3d99065b7df91ad2e3034c8b908be7" %}
 
 
 package:
@@ -66,6 +66,8 @@ test:
     - test
   commands:
     - pip check
+    - pytest -sv test/harmonic/test_dynamical_matrix.py::test_dynmat
+    - pytest -sv test/phonon/test_tetrahedron_mesh.py::test_Amm2
     - pytest -v
 
 about:
