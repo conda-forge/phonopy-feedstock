@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [python_impl == 'pypy']
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [not win]
   script: set PHONOPY_USE_OMP=OFF && {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [win]
@@ -46,6 +46,7 @@ requirements:
     - make  # [not win]
     - ninja  # [win]    
     - setuptools_scm
+    - libblas
   run:
     - python
     - {{ pin_compatible('numpy') }}
@@ -54,7 +55,6 @@ requirements:
     - h5py
     - scipy
     - pyyaml
-    - libopenblas
 
 test:
   requires:
