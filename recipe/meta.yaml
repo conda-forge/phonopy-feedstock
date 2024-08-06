@@ -13,8 +13,9 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [python_impl == 'pypy']
+  skip: ture  # [win and numpy == '2.0']
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [not win]
   script: set PHONOPY_USE_OMP=OFF && {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [win]
 
@@ -48,7 +49,6 @@ requirements:
     - setuptools_scm
   run:
     - python
-    - {{ pin_compatible('numpy') }}
     - spglib
     - matplotlib-base
     - h5py
