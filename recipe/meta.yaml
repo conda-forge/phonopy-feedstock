@@ -9,11 +9,11 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
   skip: true  # [python_impl == 'pypy']
   skip: ture  # [win and numpy >=2.0 and numpy <2.2]
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [not win]
@@ -55,6 +55,7 @@ requirements:
     - scipy
     - pyyaml
     - libopenblas
+    - symfc
 
 test:
   requires:
