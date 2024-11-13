@@ -15,7 +15,7 @@ source:
 build:
   number: 0
   skip: true  # [python_impl == 'pypy']
-  skip: ture  # [win and numpy >=2.0 and numpy <2.2]
+  skip: ture  # [win]
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [not win]
   script: set PHONOPY_USE_OMP=OFF && {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [win]
 
