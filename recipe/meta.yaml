@@ -1,6 +1,6 @@
 {% set name = "phonopy" %}
-{% set version = "2.32.0" %}
-{% set sha256 = "2c8dc7e828e4e37da120d6756dfafa0b23fa1e70e6eb5709f5b48e85994e89a1" %}
+{% set version = "2.33.2" %}
+{% set sha256 = "5b3ba1dc5d93088bfad29a73b4d7bbf0dd575129a122d7bc13632beb8d6fe45d" %}
 
 
 package:
@@ -9,7 +9,7 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://files.pythonhosted.org/packages/71/36/d47ebb34f80792e9f9030b6a358ad771ffde1daac95244d3de5b7c77fd6a/phonopy-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
@@ -52,7 +52,7 @@ requirements:
     - h5py
     - scipy
     - pyyaml
-    - symfc
+    - symfc >= 1.1.7
 
 test:
   requires:
