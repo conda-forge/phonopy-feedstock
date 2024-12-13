@@ -52,7 +52,7 @@ requirements:
     - h5py
     - scipy
     - pyyaml
-    - symfc >= 1.1.7
+    - symfc >=1.1.7
 
 test:
   requires:
