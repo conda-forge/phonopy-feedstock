@@ -9,7 +9,7 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://files.pythonhosted.org/packages/71/36/d47ebb34f80792e9f9030b6a358ad771ffde1daac95244d3de5b7c77fd6a/phonopy-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/e0/76/4d7e14ad4c500472e0b031653378a070aa9ace315a655c284c790ca59978/phonopy-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
