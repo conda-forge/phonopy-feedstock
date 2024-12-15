@@ -1,21 +1,17 @@
 {% set name = "phonopy" %}
 {% set version = "2.33.2" %}
-{% set sha256 = "5b3ba1dc5d93088bfad29a73b4d7bbf0dd575129a122d7bc13632beb8d6fe45d" %}
-
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/phonopy-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  git_url: https://github.com/phonopy/phonopy.git
 
 build:
-  number: 0
-  skip: true  # [python_impl == 'pypy' or win]
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [not win]
+  number: 1
+  skip: true  # [python_impl == 'pypy']
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   build:
