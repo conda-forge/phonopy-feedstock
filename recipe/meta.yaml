@@ -7,6 +7,7 @@ package:
 
 source:
   url: https://github.com/phonopy/phonopy/archive/refs/heads/no-symfc.zip
+  sha256: 72de66f8fc64eb5b3e964993e21a8150fd375c4ff21e30420d03c1036718edcb
 
 build:
   number: 1
