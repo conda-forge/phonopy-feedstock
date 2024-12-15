@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  git_url: https://github.com/phonopy/phonopy.git
+  url: https://github.com/phonopy/phonopy/archive/refs/heads/no-symfc.zip
 
 build:
   number: 1
