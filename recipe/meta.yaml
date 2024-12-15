@@ -46,9 +46,8 @@ requirements:
     - spglib
     - matplotlib-base
     - h5py
-    - scipy >=1.14.0
+    - scipy
     - pyyaml
-    - symfc >=1.1.7
 
 test:
   requires:
