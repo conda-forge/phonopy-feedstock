@@ -1,6 +1,6 @@
 {% set name = "phonopy" %}
-{% set version = "2.33.2" %}
-{% set sha256 = "5b3ba1dc5d93088bfad29a73b4d7bbf0dd575129a122d7bc13632beb8d6fe45d" %}
+{% set version = "2.33.3" %}
+{% set sha256 = "f3d3341631ae816daa9809ccceedf0e836c5b7aa59d756d7596df72d0d27e197" %}
 
 
 package:
@@ -9,13 +9,13 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/phonopy-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
   number: 0
   skip: true  # [python_impl == 'pypy' or win]
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [not win]
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   build:
@@ -52,7 +52,7 @@ requirements:
     - h5py
     - scipy
     - pyyaml
-    - symfc >=1.1.7
+    - symfc >=1.1.7  # [not win]
 
 test:
   requires:
@@ -66,6 +66,7 @@ test:
     - pip check
     - pytest -sv test/harmonic/test_dynamical_matrix.py::test_dynmat
     - pytest -sv test/phonon/test_tetrahedron_mesh.py::test_Amm2
+    - pytest -sv test/phonon/test_mesh.py
     - pytest -v
 
 about:
