@@ -32,8 +32,6 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
-    - clang         # [win]
-    - lld           # [win]
     - llvm-openmp   # [osx or arm64 or win]
     - libgomp       # [linux]
   host:
