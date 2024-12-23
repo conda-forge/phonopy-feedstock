@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [python_impl == 'pypy']
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
@@ -31,6 +31,7 @@ requirements:
     - setuptools_scm
     - llvm-openmp  # [osx or arm64]
     - libgomp      # [linux]
+    - intel-openmp  # [win]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
@@ -52,7 +53,7 @@ requirements:
     - h5py
     - scipy
     - pyyaml
-    - symfc >=1.1.7  # [not win]
+    - symfc >=1.1.7
 
 test:
   requires:
