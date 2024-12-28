@@ -1,6 +1,6 @@
 {% set name = "phonopy" %}
-{% set version = "2.33.3" %}
-{% set sha256 = "f3d3341631ae816daa9809ccceedf0e836c5b7aa59d756d7596df72d0d27e197" %}
+{% set version = "2.33.4" %}
+{% set sha256 = "2d67cc4b0befc6ac2e0d8954768cf3ea128e06134277408146898b3fe1b542bc" %}
 
 
 package:
@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   skip: true  # [python_impl == 'pypy']
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
