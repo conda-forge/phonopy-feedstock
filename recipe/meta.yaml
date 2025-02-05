@@ -1,6 +1,6 @@
 {% set name = "phonopy" %}
-{% set version = "2.35.0" %}
-{% set sha256 = "9d19cd36e47a28d8e441277462f31c1564af222abc6b30c11cd9367d513ccbc3" %}
+{% set version = "2.36.0" %}
+{% set sha256 = "2d18516445539cf657e75855f2c4ea9b8204a6754ff79ba75f9ee59ab064f165" %}
 
 
 package:
@@ -52,7 +52,7 @@ requirements:
     - h5py
     - scipy
     - pyyaml
-    - symfc >=1.1.7
+    - symfc >=1.3.0
 
 test:
   requires:
