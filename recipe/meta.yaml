@@ -13,9 +13,10 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [python_impl == 'pypy']
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv --config-settings=cmake.define.Python_EXECUTABLE="%PYTHON%"  # [win]
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv --config-settings=cmake.define.Python_EXECUTABLE="$PYTHON"  # [not win]
 
 requirements:
   build:
