@@ -15,7 +15,8 @@ source:
 build:
   number: 1
   skip: true  # [python_impl == 'pypy']
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv --config-settings=cmake.define.Python_EXECUTABLE={{ PYTHON }}
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv --config-settings=cmake.define.Python_EXECUTABLE="%PYTHON%"  # [win]
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv --config-settings=cmake.define.Python_EXECUTABLE="$PYTHON"  # [not win]
 
 requirements:
   build:
