@@ -1,6 +1,6 @@
 {% set name = "phonopy" %}
-{% set version = "2.43.2" %}
-{% set sha256 = "91da896808838be0cd0c02f82543ca2f6627816cfdae224843dd59ff65ca58dd" %}
+{% set version = "2.43.3" %}
+{% set sha256 = "25f82e88ab0fe163d7212fb62af732dd98890986296a934e3320aaebad150c9d" %}
 
 
 package:
@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   skip: true  # [python_impl == 'pypy']
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   entry_points:  # Tentavive to fix the entry points
