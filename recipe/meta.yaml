@@ -1,6 +1,6 @@
 {% set name = "phonopy" %}
-{% set version = "2.48.0" %}
-{% set sha256 = "206b5af9dba2dc557a1b5e14e7105d5f414700fcb0ba8e0a2029d1a40a557b43" %}
+{% set version = "3.0.0" %}
+{% set sha256 = "87e0ec91f26f452ff733905296605a08db88a166562b0fe80887a8f295e95c35" %}
 
 
 package:
@@ -52,7 +52,6 @@ requirements:
   host:
     - python
     - numpy
-    - spglib
     - pip
     - scikit-build-core
     - nanobind
@@ -65,7 +64,7 @@ requirements:
     - liblapack * *openblas  # [win]    
   run:
     - python
-    - spglib
+    - spglib >=2.5
     - matplotlib-base
     - h5py
     - scipy
