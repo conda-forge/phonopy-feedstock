@@ -1,6 +1,6 @@
 {% set name = "phonopy" %}
-{% set version = "3.5.0" %}
-{% set sha256 = "fb57d3f220d2c07d95135d32de3876f8073fae635ffaff7aab22f23af9578073" %}
+{% set version = "3.5.1" %}
+{% set sha256 = "37869c383d0b1fa1355f17a1bb3599479406530d730791d71dc16186848db196" %}
 
 
 package:
@@ -69,7 +69,7 @@ requirements:
     - h5py
     - scipy
     - pyyaml
-    - symfc >=1.5.0
+    - symfc >=1.7.0
     - libblas * *openblas  # [win]
     - libcblas * *openblas  # [win]
     - liblapack * *openblas  # [win]    
