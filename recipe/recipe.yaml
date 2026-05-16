@@ -1,0 +1,129 @@
+context:
+  version: "4.0.0"
+
+package:
+  name: phonopy
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/source/p/phonopy/phonopy-${{ version }}.tar.gz
+  sha256: 650907380f4dd6c9ac6156651231c25d4d814cb4eca0bf06ec62b2263a8115a2
+
+build:
+  number: 0
+  skip: match(python, "pypy")
+  script: ${{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  python:
+    entry_points:
+      - phonopy = phonopy.scripts.phonopy:run
+      - phonopy-load = phonopy.scripts.phonopy_load:run
+      - phonopy-bandplot = phonopy.scripts.phonopy_bandplot:run
+      - phonopy-calc-convert = phonopy.scripts.phonopy_calc_convert:run
+      - phonopy-crystal-born = phonopy.scripts.phonopy_crystal_born:run
+      - phonopy-gruneisen = phonopy.scripts.phonopy_gruneisen:run
+      - phonopy-gruneisenplot = phonopy.scripts.phonopy_gruneisenplot:run
+      - phonopy-pdosplot = phonopy.scripts.phonopy_pdosplot:run
+      - phonopy-propplot = phonopy.scripts.phonopy_propplot:run
+      - phonopy-qha = phonopy.scripts.phonopy_qha:run
+      - phonopy-tdplot = phonopy.scripts.phonopy_tdplot:run
+      - phonopy-vasp-born = phonopy.scripts.phonopy_vasp_born:run
+      - phonopy-vasp-efe = phonopy.scripts.phonopy_vasp_efe:run
+      - phonopy-qe-born = phonopy.scripts.phonopy_qe_born:run
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - numpy
+    - pip
+    - scikit-build-core
+    - nanobind
+    - cmake
+    - if: not win
+      then: make
+    - if: win
+      then: ninja
+    - setuptools_scm
+    - if: osx or arm64
+      then: llvm-openmp
+    - if: linux
+      then: libgomp
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib("c") }}
+  host:
+    - python
+    - numpy
+    - pip
+    - scikit-build-core
+    - nanobind
+    - cmake
+    - if: not win
+      then: make
+    - if: win
+      then: ninja
+    - setuptools_scm
+    - if: win
+      then:
+        - libblas * *openblas
+        - libcblas * *openblas
+        - liblapack * *openblas
+  run:
+    - python
+    - spglib >=2.5
+    - matplotlib-base
+    - h5py
+    - scipy
+    - pyyaml
+    - symfc >=1.7.0
+    - phonors
+    - if: win
+      then:
+        - libblas * *openblas
+        - libcblas * *openblas
+        - liblapack * *openblas
+
+tests:
+  - python:
+      imports:
+        - phonopy
+      pip_check: true
+  - script:
+      - pytest -sv test/harmonic/test_dynamical_matrix.py::test_dynmat
+      - pytest -sv test/phonon/test_tetrahedron_mesh.py::test_Amm2
+      - pytest -sv test/phonon/test_mesh.py
+      - pytest -v
+    requirements:
+      run:
+        - pytest
+        - pip
+    files:
+      source:
+        - test/
+
+about:
+  homepage: https://phonopy.github.io/phonopy/
+  license: BSD-3-Clause
+  license_file: LICENSE
+  summary: Phonopy is an open source package for phonon calculations at harmonic and quasi-harmonic levels.
+  description: |
+    Phonopy is an open source package for phonon calculations at harmonic and quasi-harmonic levels.
+    It works with multiple DFT programs (VASP, VASP DFPT, Abinit, Pwscf, Siesta, Elk, FHI-aims, Wien2k)
+    as sources of inter-atomic forces and uses finite displacement method and symmetry relations
+    for calculating elements of dynamical matrix. It works for all crystal symmetries and provides
+    (among others)  phonon band structure, phonon DOS and partial-DOS, phonon thermal properties
+    (free energy, heat capacity, and entropy), phonon group velocity, mean square displacements,
+    irreducible representations of normal modes, quasi-harmonic approximation (thermal expansion,
+    heat capacity at constant pressure), mode Grüneisen parameters, non-analytical-term correction
+    (LO-TO splitting). It also provides Python API for use as a library.
+  documentation: https://phonopy.github.io/phonopy/
+  repository: https://github.com/atztogo/phonopy/
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
+    - jochym
+    - atztogo
+    - bocklund
