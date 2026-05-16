@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "3.5.1"
+  version: "4.0.0"
 
 package:
   name: phonopy
@@ -9,10 +9,10 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/p/phonopy/phonopy-${{ version }}.tar.gz
-  sha256: 37869c383d0b1fa1355f17a1bb3599479406530d730791d71dc16186848db196
+  sha256: 650907380f4dd6c9ac6156651231c25d4d814cb4eca0bf06ec62b2263a8115a2
 
 build:
-  number: 1
+  number: 0
   skip: python_impl == 'pypy'
   script: ${{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   python:
@@ -35,19 +35,17 @@ build:
 requirements:
   build:
     - if: build_platform != target_platform
-      then: python
-    - if: build_platform != target_platform
-      then: cross-python_${{ target_platform }}
-    - if: build_platform != target_platform
-      then: numpy
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - numpy
     - pip
     - scikit-build-core
     - nanobind
     - cmake
     - if: not win
       then: make
-    - if: win
-      then: ninja
+      else: ninja
     - setuptools_scm
     - if: osx or arm64
       then: llvm-openmp
@@ -65,15 +63,13 @@ requirements:
     - cmake
     - if: not win
       then: make
-    - if: win
-      then: ninja
+      else: ninja
     - setuptools_scm
     - if: win
-      then: libblas * *openblas
-    - if: win
-      then: libcblas * *openblas
-    - if: win
-      then: liblapack * *openblas
+      then:
+        - libblas * *openblas
+        - libcblas * *openblas
+        - liblapack * *openblas
   run:
     - python
     - spglib >=2.5
@@ -83,12 +79,10 @@ requirements:
     - pyyaml
     - symfc >=1.7.0
     - if: win
-      then: libblas * *openblas
-    - if: win
-      then: libcblas * *openblas
-    - if: win
-      then: liblapack * *openblas
-
+      then:
+        - libblas * *openblas
+        - libcblas * *openblas
+        - liblapack * *openblas
 tests:
   - python:
       imports:
