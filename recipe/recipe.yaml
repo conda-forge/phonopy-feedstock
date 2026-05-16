@@ -1,18 +1,15 @@
 schema_version: 1
 
 context:
-  name: phonopy
   version: "3.5.1"
-  sha256: 37869c383d0b1fa1355f17a1bb3599479406530d730791d71dc16186848db196
 
 package:
-  name: ${{ name|lower }}
+  name: phonopy
   version: ${{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: ${{ sha256 }}
-  file_name: ${{ name }}-${{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/p/phonopy/phonopy-${{ version }}.tar.gz
+  sha256: 37869c383d0b1fa1355f17a1bb3599479406530d730791d71dc16186848db196
 
 build:
   number: 1
