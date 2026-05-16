@@ -23,7 +23,6 @@ irreducible representations of normal modes, quasi-harmonic approximation (therm
 heat capacity at constant pressure), mode Grüneisen parameters, non-analytical-term correction
 (LO-TO splitting). It also provides Python API for use as a library.
 
-
 Current build status
 ====================
 
