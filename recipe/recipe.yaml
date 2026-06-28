@@ -12,7 +12,7 @@ source:
   sha256: 239030040da239663004be715e82894002b7950931780556b971aac46da1340e
 
 build:
-  number: 0
+  number: 1
   skip: python_impl == 'pypy'
   script: ${{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   python:
@@ -78,7 +78,7 @@ requirements:
     - scipy
     - pyyaml
     - symfc >=1.7.0
-    - phonors >=0.2.0
+    - phonors >=0.3.0
     - if: win
       then:
         - libblas * *openblas
