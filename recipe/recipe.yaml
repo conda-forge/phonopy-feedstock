@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "4.4.0"
+  version: "4.5.0"
 
 package:
   name: phonopy
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/p/phonopy/phonopy-${{ version }}.tar.gz
-  sha256: 6c1a20772e99502fe3019cb9dbe1d9e9f97c42b1d5cbb5d8707f247e04dae0d0
+  sha256: 22be8655ae9604169039a4f26fcee3d4f190d40bb9405dec7bae711ed5d90176
 
 build:
   number: 0
