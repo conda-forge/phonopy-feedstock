@@ -12,8 +12,10 @@ source:
   sha256: 22be8655ae9604169039a4f26fcee3d4f190d40bb9405dec7bae711ed5d90176
 
 build:
-  number: 0
-  skip: python_impl == 'pypy'
+  number: 1
+  skip:
+    - python_impl == 'pypy'
+    - target_platform in ["linux-aarch64", "linux-ppc64le"] and "cp314t" in python  
   script: ${{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   python:
     entry_points:
