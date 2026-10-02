@@ -12,7 +12,7 @@ source:
   sha256: 42e1146e46e62ad99d27335d6a1982a9f8c891abcd1c287e6a5f4442e4401b55
 
 build:
-  number: 0
+  number: 1
   skip:
     - python_impl == 'pypy'
     - target_platform in ["linux-aarch64", "linux-ppc64le"] and "cp314t" in python
