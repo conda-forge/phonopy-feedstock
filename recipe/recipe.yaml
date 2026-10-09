@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: 4.8.1
+  version: "4.8.2"
 
 package:
   name: phonopy
@@ -9,10 +9,10 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/p/phonopy/phonopy-${{ version }}.tar.gz
-  sha256: 3a586a7009273a5086292673f735415aee6e1eebe8ad0bdbcd780a1475123672
+  sha256: 700888bc8fa51998a3de35fbf30d3a051b43b02450a769b03c4035a69bf0ba83
 
 build:
-  number: 1
+  number: 0
   skip:
     - python_impl == 'pypy'
     - target_platform in ["linux-aarch64", "linux-ppc64le"] and "cp314t" in python
