@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "4.9.0"
+  version: 4.10.0
 
 package:
   name: phonopy
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/p/phonopy/phonopy-${{ version }}.tar.gz
-  sha256: 4e0f074100e739f755f118cece34e666f3c8ae06126a2a0486f99ad07ed9a725
+  sha256: c5ac78aeeb482cdb4d8482dffc3db9cb645f76f6c9d06a996012bebae37dbf7a
 
 build:
   number: 0
@@ -78,7 +78,7 @@ requirements:
     - matplotlib-base >=2.2.2
     - h5py >=3.0
     - pyyaml >=5.3
-    - symfc >=1.7.0
+    - symfc >=1.8
     - phonors >=0.6.0
     - if: win
       then:
