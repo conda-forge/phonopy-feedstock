@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: 4.10.0
+  version: 4.11.0
 
 package:
   name: phonopy
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/p/phonopy/phonopy-${{ version }}.tar.gz
-  sha256: c5ac78aeeb482cdb4d8482dffc3db9cb645f76f6c9d06a996012bebae37dbf7a
+  sha256: ad6b5905a311d8ab20893219676d94fa0141df4aa7f4045778a67e86f6600d48
 
 build:
   number: 0
@@ -79,7 +79,7 @@ requirements:
     - h5py >=3.0
     - pyyaml >=5.3
     - symfc >=1.8
-    - phonors >=0.6.0
+    - phonors >=0.9.0
     - if: win
       then:
         - libblas * *openblas
